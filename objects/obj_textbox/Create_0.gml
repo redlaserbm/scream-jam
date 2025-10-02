@@ -40,8 +40,8 @@ text_id = "";
 option[0] = "Yes";
 option_link_id[0] = noone;
 
-option_pos = noone;
-hover_pos = noone;
+option_pos = -1;
+// hover_pos = -1;
 option_number = 0;
 
 text_length[0] = string_length(text[0]);

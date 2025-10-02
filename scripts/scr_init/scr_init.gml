@@ -55,6 +55,12 @@ textbox =
 	
 	alpha: 0.85,
 	
+	font: main_font,
+	font_color: main_font_color,
+	
+	// typewriter_sound: snd_click,
+	// advance_sound: snd_click
+	
 };
 
 // Defining dependent variables

@@ -1,48 +1,40 @@
-// SCREAM JAM NOTE: We probably need this for the jam, I'm just not sure exactly how *precisely* it's gonna get used...
-function scr_draw_options(_xval, _yval, _options, _alignment = "top_left") {
-	// Scripting function which allows interactables to draw a list of options that the player can choose from
-	// _options is assumed to be an array with elements consisting of structs that give information about the options
-	// Example: _options[0] = {text:"hi mom", type: "standard"}
+/// @function scr_draw_options(_xval, _yval, _options, _alignment);
+/// @param {real}	_xval		The x-coordinate to place the options menu at.
+/// @param {real}	_yval		The y-coordinate to place the options menu at.
+/// @param {array}	_options	An array of strings denoting possible choices to pick from.
+/// @param {bool}	_accept_key For checking whether the player pressed the accept key or not.
+/// @param {string} _alignment	Determines how to place the options panel given _xval, _yval
+/// @param {struct} _settings	Struct containing parameters that determine how the script will format the options menu.
+/// @description Draws a list of options on screen for the player to choose from.
+/// We recommend that the object that calls this script has state variables "options" and "hover_pos".
+/// However, the script uses local variables "_options" and a return value "_hover_pos" to allow for flexibility where needed.
+/// @return  {struct}  Contains information on which option is hovered and which one is picked, if applicable
+function scr_draw_options(_xval, _yval, _options, _accept_key, _alignment = "top_left", _settings = global.textbox) {
+	// JAM note: I'm going to simplify the code for now by removing slider support.
+	// We can reintroduce it later by revisiting the code for "Kala was Killed".
+
+	// Set the font
+	draw_set_font(_settings.font);
 	
-	draw_set_font(global.main_font);
-	
-	// Legacy support
-	if is_string(_options[0]) {
-		for (var _i = 0; _i < array_length(_options); _i++) {
-			var _text = _options[_i];
-			_options[_i] = {
-				text: _text,
-				type: "standard"
-			}
-		}
-	}
-	
-	// This script reads the state variable "accept_key" to track whether or not an option has been click in.
-	// This script updates the state variable "option_pos" to indicate, when an option is picked, which one was picked.
-	
-	// The following alignment options are available:
-	// top_left, bottom_left, top_right, bottom_right
+	// ### COMPUTE DIMENSIONS OF OPTIONS MENU 
 	
 	// How *wide* should the options dialogue be?
 	var _max_width = 0;
 	for (var _i = 0; _i < array_length(_options); _i++) {
-		var _w = string_width(_options[_i].text);
-		if _options[_i].type == "slider" {
-			// If the option is a slider, we need to make extra width for that slider
-			_w += global.textbox.slider_width + global.textbox.border_x;
-		}
+		var _w = string_width(_options[_i]);
 		if _w > _max_width {
 			_max_width = _w;	
 		}
 	}
-	var _option_width = _max_width + 2*global.textbox.option_border_x;
+	var _option_width = _max_width + 2*_settings.option_border_x;
 	
 	// How *high* should the options dialogue be?
-	var _option_height = 2*global.textbox.option_border_y
-	_option_height = _option_height + global.textbox.line_sep*(array_length(_options)-1)
-	_option_height = _option_height + string_height(_options[array_length(_options)-1].text);
+	var _option_height = 2*_settings.option_border_y
+	_option_height = _option_height + _settings.line_sep*(array_length(_options)-1)
+	_option_height = _option_height + string_height(_options[array_length(_options)-1]);
 	
-	// If the alignment is anything different from top_left, we must modify _xval and/or _yval based on the measurements above
+	// ### MODIFY COORDINATES BASED ON ALIGNMENT
+	
 	switch (_alignment) {
 		case "top_left":
 			break;
@@ -61,57 +53,60 @@ function scr_draw_options(_xval, _yval, _options, _alignment = "top_left") {
 	// Draw the back of the textbox
 	draw_sprite_ext
 	(
-		global.textbox.spr, 
+		_settings.textbox_spr, 
 		0, _xval, _yval, 
-		_option_width/global.textbox.spr_w, 
-		_option_height/global.textbox.spr_h, 
-		0, c_white, global.textbox.alpha
+		_option_width/_settings.textbox_spr_w, 
+		_option_height/_settings.textbox_spr_h, 
+		0, c_white, _settings.alpha
 	);
 	
-	// Highlight the option currently being hovered over by the mouse, if such an option exists.
+	// ### DRAW OPTIONS & COMPUTE HOVERED/PICKED OPTION
+	
 	var _mx = mouse_x;
 	var _my = mouse_y;
 	var _nudge = 0;
 	
+	var _hover_pos = -1; // For computing which option the player is hovering over
+	var _option_pos = -1; // For computing which option the player has selected (i.e. when _accept_key is true)
+	
 	// Draw each option available to the player. 
-	// If that option is currently being hovered over by the mouse, *highlight* that option...
-	var _hover_pos = noone;
 	for (var _i = 0; _i < array_length(_options); _i++) {
 		
-		var _x1 = _xval + global.textbox.option_border_x;
-		var _y1 =  _yval + global.textbox.option_border_y + _nudge;
-		if point_in_rectangle(_mx, _my, _x1, _y1, _x1 + string_width(_options[_i].text), _y1 + string_height(_options[_i].text)) && (_options[_i].type == "standard") {
+		var _x1 = _xval + _settings.option_border_x;
+		var _y1 =  _yval + _settings.option_border_y + _nudge;
+		// If that option is currently being hovered over by the mouse, *highlight* that option...
+		if point_in_rectangle(_mx, _my, _x1, _y1, _x1 + string_width(_options[_i]), _y1 + string_height(_options[_i])) {
 			_hover_pos = _i;
 			draw_sprite_stretched
 			(
 				spr_black,
 				0,
-				_x1 - global.textbox.highlight_border_x, 
-				_y1 - global.textbox.highlight_border_y,
-				string_width(_options[_i].text) + 2*global.textbox.highlight_border_x, //width
-				string_height(_options[_i].text) + 2*global.textbox.highlight_border_y //height
+				_x1 - _settings.highlight_border_x, 
+				_y1 - _settings.highlight_border_y,
+				string_width(_options[_i]) + 2*_settings.highlight_border_x, //width
+				string_height(_options[_i]) + 2*_settings.highlight_border_y //height
 			);
-			if accept_key {
-				audio_play_sound(snd_click, 1, false, global.settings.volume*global.settings.volume_sfx);
-				option_pos = _i;
+			// If that option is activing being selected by the player, indicate as such in the return values.
+			if _accept_key {
+				// audio_play_sound(snd_click, 1, false, global.settings.volume*global.settings.volume_sfx);
+				_option_pos = _i;
 			}
 		}
 		
-		var _drawoption = _options[_i].text;
+		// We need to change the text color of the highlighted option (if it exists) so the text is visible
+		var _drawoption = _options[_i];
 		var _color = make_color_rgb(255,255,255);
 		if (_i == _hover_pos) {
 			draw_text_colour(_x1, _y1, _drawoption, _color, _color, _color, _color, 255);
 		} else {
-			draw_text_ext(_x1, _y1, _drawoption, global.textbox.line_sep, 640);
+			draw_text_ext(_x1, _y1, _drawoption, _settings.line_sep, 640);
 		}
 		
-		if _options[_i].type == "slider" {
-			scr_draw_slider(_x1 + _max_width - global.textbox.slider_width - 0.5*global.textbox.border_x, _y1 + 0.5*string_height(_options[0].text) - 0.5*sprite_get_height(spr_circle), global.settings, ds_map_find_value(global.map_settings, _options[_i].text));
-			draw_sprite_stretched(spr_line_segment, 0, _x1 + _max_width - global.textbox.slider_width - 0.5*global.textbox.border_x, _y1 + 0.4*sprite_get_height(spr_line_segment), global.textbox.slider_width + sprite_get_width(spr_circle), 0.125*sprite_get_height(spr_line_segment));
-		}
-		
-		_nudge += global.textbox.line_sep;
+		_nudge += _settings.line_sep;
 	}
 	
-	hover_pos = _hover_pos;
-}
+	return {
+		hover: _hover_pos,
+		option: _option_pos
+	};
+};

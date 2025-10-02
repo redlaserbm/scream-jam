@@ -98,7 +98,8 @@ if state.active {
 		// Options
 		var _display_options = (page == page_number - 1) && (draw_char >= text_length[page]) && option_link_id[0] != noone;
 		if _display_options {
-			scr_draw_options(_xval, _yval, option);
+			var _return_val = scr_draw_options(_xval, _yval, option, accept_key);
+			if (_return_val.option > -1) {option_pos = _return_val.option};
 		}
 	
 		// Draw the nameplate and the name of the person speaking, provided that such a person exists
@@ -147,7 +148,7 @@ if state.active {
 		// If options dialogue is present, advance the dialogue provided that we click on an option.
 		// For presentation's sake, do not allow the player to advance dialogue while the game is transitioning from background to background.
 		
-		if (force_go && draw_char >= text_length[page]) || ((accept_key && !_display_options) || (accept_key && _display_options && option_pos != noone)) && timer > 2 {
+		if (force_go && draw_char >= text_length[page]) || ((accept_key && !_display_options) || (accept_key && _display_options && option_pos > -1)) && timer > 2 {
 			
 			// Has all the text for the current page displayed yet?
 			if draw_char < text_length[page] {
