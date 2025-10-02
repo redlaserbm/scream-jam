@@ -1,0 +1,47 @@
+### MOTIVATION ###
+
+At its core, the role of the textbox is just to display dialogue for characters.
+"Kala was Killed" uses a system built off of a framework provided by Peyton
+Burnham. The first part of that tutorial is listed here:
+https://www.youtube.com/watch?v=rEYSi0ahC5Q
+
+### TEXT STORAGE --- BASICS ###
+
+Text is stored in "dictionaries", which associate certain strings with conversations.
+For example, in the dictionary "foo", the string "cookie" may represent a
+convseration about cookies.
+
+The dictionary itself is a switch, with cases corresponding to the strings. Within
+each case lies a list of scr_text(...) commands, which essentially prescribe how
+the conservation is intended to go.
+
+### TEXT STORAGE --- BRANCHING DIALOGUE ###
+
+The above system is only good for capturing basic dialogue. To expand it, we introduce
+scr_option(...) for handling multiple dialogue options. To accomodate for branching
+dialogue, use scr_option(...) for each branching choice at the end of the entry.
+
+### BASICS ###
+
+The framework for the textbox is not limited to just obj_textbox. 
+In fact, there's also a system of scripts to handle textbox functionality as needed.
+All such scripts are contained in Scripts/Textbox. The core scripts are as such:
+
+- scr_text(...) tells the textbox at a given page number what information it needs
+to display 
+- scr_textbox_create(...) generates a textbox based on an id and a dictionary
+- 
+
+### TEXT STORAGE --- END ACTIONS ###
+
+In general, we may need the game to trigger arbitrary actions after a conversation
+is finished. For example, completing one conversation may trigger getting a new item.
+Completing another may take you to another location. Scripts/Textbox/scr_end_actions
+contains a list of functions that textbox items could run after they are finished.
+Certain conversations can amend functions to an array end_actions which runs when
+the textbox is to be destroyed.
+
+### CODE OPTIMIZATION --- TECH DEBT ###
+
+The textbox code can benefit from optimization for readibility before inclusion into
+this project. It works but isn't exactly super legible...

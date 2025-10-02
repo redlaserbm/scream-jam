@@ -1,0 +1,10 @@
+Typically, games in GameMaker have a "controller" object (which we 
+have adopted the convention of calling obj_game) that is persistent and tracks
+important game info as it evolves over time.
+
+For the purpose of separation of functionality, we actually have *multiple* such controller objects:
+- obj_game (tracks state variables)
+- obj_logger (tracks history of conversations)
+- obj_music (determines the music to play at any given point)
+
+Typically, obj_music will receive signals from other objects whenever the music needs to change.

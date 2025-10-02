@@ -1,0 +1,2 @@
+This folder contains scripts for "activeSys", our system for 
+managing interactability with objects throughout the game.

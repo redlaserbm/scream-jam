@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"nt_overview",
+  "name":"nt_overview",
+  "parent":{
+    "name":"Items",
+    "path":"folders/Scripts/Items.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

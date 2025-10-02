@@ -1,0 +1,29 @@
+For now, our goal is to create the prototype scenario below. There are three bullet
+points of focus, and I've ordered them in terms of importance.
+
+1. There are two locations, which the player can travel freely between by accessing the map.
+The map can be accessed whenever the player is not actively engaging in a conversation.
+
+2. The player can view a log of text from past conversations. 
+
+3. The player has access to an inventory, which contains items of interest that the player can
+examine for more details if desired.
+
+Items 2 and 3 were implemented to a significant degree in "Kala was Killed". Item 2's code can
+probably be copied and pasted without much trouble, but item 3 may still be cumbersome to
+implement, as we want to do things slightly differently than in Kala was Killed.
+
+To prevent scope creep, consider omitting 3 for the scream jam, but implementing it for a
+later project.
+
+### Text Conversations ###
+
+In order to simulate conversations, we must introduce at least two characters and implement
+the textbox system. For now, we can just use Laser and Temmie from "Kala was Killed" for 
+testing purposes.
+
+Notice that we don't need *objects* to represent characters, just sprites. 
+
+### Dynamic Backgrounds & Music ###
+
+We are going to gut current functionality 

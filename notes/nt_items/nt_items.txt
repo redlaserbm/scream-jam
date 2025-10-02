@@ -1,0 +1,8 @@
+### NOTICE ###
+
+This group contains objects that the player can interact with during the game. This may consitute:
+- Stand-ins for clickables that let you interact with NPCs
+- Items that can be picked up and added to the inventory
+
+All items of this nature shall be prefixed with "itm" instead of "obj" and parented by
+obj_interactable.

@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"nt_textbox_overview",
+  "name":"nt_textbox_overview",
+  "parent":{
+    "name":"textbox",
+    "path":"folders/Sprites/textbox.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

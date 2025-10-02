@@ -1,0 +1,69 @@
+### MOTIVATION ###
+
+The interactable system was introduced to resolve the following problem:
+Assume you are playing a point-and-click in which there are many possible
+objects you could interact with. If I choose to interact with an object, 
+how do I ensure that my clicks do not trigger a concurrent interaction 
+with another object?
+
+For example, say that a room contains an elevator panel and I am currently
+talking with someone in that room. I should not be able to trigger an interaction
+with the elevator panel while conversing with someone else.
+
+The solution to this problem in "Kala was Killed" was to parent all interactable
+objects with an obj_interactable, and then only allow at most *one* instance
+of obj_interactable to be active at a time.
+
+### BASIC SETUP & SHORTCOMINGS ###
+
+The basic setup is to affix a state variable "active" to all obj_interactables.
+Generally, in order to be able to interact with an interactable, no other
+interactables must be active. If we make an interactable active, we deactivate
+all other interactables (this functionality is useful for textboxes in 
+particular.) Only one interactable maximum can be active at a time, resolving
+the issue of unintentionally triggering multiple UIs at once.
+
+However, this setup alone is not enough to resolve *all* problems associated with
+interactable objects. Suppose I am interacting with an object in the world,
+perhaps it's a puzzle, and I want the panel to trigger a text
+conversation when a certain button is pressed.
+
+With activeSys, we can easily make it so that when the text conversation is
+triggered, the panel is no longer interactable. However, when the text
+conversation finishes, the panel will remain inactive. In some cases, this may
+actually be the desired behavior, but generally, I would like the game to also
+reactivate the panel when the text conversation finishes...
+
+### MEMORIZATION & SHORTCOMINGS ###
+
+To resolve the shortcoming above, we introduce the state variable 
+"previous_active" which memorizes the previous object that was active at the 
+time of most recent activation. Now we can trigger the previously active object
+when we are finished interacting with the current one.
+
+However, we shouldn't do this *all* the time. Let's say we solve the puzzle from
+before, and trigger a text conversation from having solved said puzzle. We
+do NOT want to retrigger the puzzle again after the conversation ends. So, in
+general, sometimes we want to memorize the previously active object, and sometimes
+we don't.
+
+The approach to fix this is to simply specify upon activation whether to memorize
+the previous object or not. When choosing to memorize the object, we can even
+place it on "standby", perhaps giving it a state to be in while inactive but
+"waiting" to be reactivated.
+
+"Kala was Killed" always upon object activation memorizes the previous object
+and tries to place it on standby. Whenever an object is deactivated, it checks 
+whether the previous object is on standby, and if it is, activates that object.
+
+There are two key limitations to the system though:
+1. If you use the system to memorize objects, then you cannot use it with
+multiple instances of the same object.
+2. If you the system to memorize instances, the system will break under 
+saving/loading.
+
+Limitation 1 is mitigated if you only use unique objects.
+Limitation 2 is mitigated if you only allow saving while no objects are active.
+
+"Kala was Killed" uses method 1 because method 2 prevents saving/loading during
+dialogue, which could be particularly inconvient for dialogue driven experiences.
