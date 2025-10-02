@@ -42,9 +42,10 @@ if !setup {
 	
 	// TODO: Introduce obj_logger
 	if instance_number(obj_logger) > 0 {
-		obj_logger.ind += 1;
-		obj_logger.text[obj_logger.ind] = text[page];
-		obj_logger.portrait[obj_logger.ind] = portrait[page];
+		obj_logger.append_entry(text[page], portrait[page]); 
+		//obj_logger.ind += 1;
+		//obj_logger.text[obj_logger.ind] = text[page];
+		//obj_logger.portrait[obj_logger.ind] = portrait[page];
 	}
 	
 	show_debug_message("textbox[" + string(id) + "] text_id: " + state.text_id);
@@ -158,9 +159,7 @@ if state.active {
 			else {
 				// Write out of the current page of text to the logger.
 				if (page+1) < array_length(text) {
-					obj_logger.ind += 1;
-					obj_logger.text[obj_logger.ind] = text[page+1];
-					obj_logger.portrait[obj_logger.ind] = portrait[page+1];
+					obj_logger.append_entry(text[page+1], portrait[page+1]); 
 				}
 				// audio_play_sound(snd_click, 1, false, 0.25);
 			
@@ -180,9 +179,7 @@ if state.active {
 		if skip_key {
 			// Log any of the text that was skipped over. This will be helpful if for whatever reason the player accidentally skips over the text.
 			while (page + 1) < array_length(text) {
-				obj_logger.ind += 1;
-				obj_logger.text[obj_logger.ind] = text[page+1];
-				obj_logger.portrait[obj_logger.ind] = portrait[page+1];	
+				obj_logger.append_entry(text[page+1], portrait[page+1]); 
 				page++;
 			}
 			

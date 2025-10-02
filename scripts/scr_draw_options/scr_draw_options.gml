@@ -8,7 +8,7 @@
 /// @description Draws a list of options on screen for the player to choose from.
 /// We recommend that the object that calls this script has state variables "options" and "hover_pos".
 /// However, the script uses local variables "_options" and a return value "_hover_pos" to allow for flexibility where needed.
-/// @return  {struct}  Contains information on which option is hovered and which one is picked, if applicable
+/// @return  {struct}  hover & option
 function scr_draw_options(_xval, _yval, _options, _accept_key, _alignment = "top_left", _settings = global.textbox) {
 	// JAM note: I'm going to simplify the code for now by removing slider support.
 	// We can reintroduce it later by revisiting the code for "Kala was Killed".

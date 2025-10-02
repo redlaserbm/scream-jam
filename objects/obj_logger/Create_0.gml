@@ -9,7 +9,7 @@ event_inherited();
 
 ind = -1;
 text[0] = "text";
-portrait[0] = spr_laser;
+speaker[0] = "Laser";
 
 depth = scr_front();
 
@@ -17,17 +17,16 @@ depth = scr_front();
 // having these dimensions declared in obj_init
 
 // DIMENSIONS
-portrait_width = 100;
-portrait_height = 100;
 
-portrait_border_x = 15;
-portrait_border_y = 15;
+nameplate_border_x = 20;
+nameplate_border_y = 25;
+nameplate_width = 150;
 
 // We want to contain text on the right side of the screen,
 // And leave a little room on the left to indicate who is speaking.
 
-portrait_x_offset = 0;
-textbox_x_offset = portrait_x_offset + 2*portrait_border_x + portrait_width;
+nameplate_x_offset = 0;
+textbox_x_offset = nameplate_x_offset + nameplate_width;
 
 // Determines how wide we will draw log textboxes
 textbox_width = 640 - textbox_x_offset;
@@ -59,3 +58,13 @@ scroll_speed = 25;
 special_activate = function() {
 	depth = scr_front();	
 };
+
+
+append_entry = function(_text, _speaker) {
+	// _speaker actually represents the *sprite* of the person speaking
+	ind++;
+	text[ind] = _text;
+	speaker[ind] = ds_map_find_value(global.speaker, _speaker);
+};
+
+toggle_key = false;

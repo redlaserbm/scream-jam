@@ -53,8 +53,10 @@ place it on "standby", perhaps giving it a state to be in while inactive but
 "waiting" to be reactivated.
 
 "Kala was Killed" always upon object activation memorizes the previous object
-and tries to place it on standby. Whenever an object is deactivated, it checks 
+and places it on standby. Whenever an object is deactivated, it checks 
 whether the previous object is on standby, and if it is, activates that object.
+Generally, if an object should *not* be memorized, this responsibility is left
+to the object being designated as a standby object to take itself off of standby.
 
 There are two key limitations to the system though:
 1. If you use the system to memorize objects, then you cannot use it with
