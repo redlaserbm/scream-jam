@@ -77,3 +77,5 @@ force_go = false;
 special_activate = function() {
 	depth = scr_front();	
 };
+
+show_debug_message("obj_textbox[" + string(id) + "]: Created!");

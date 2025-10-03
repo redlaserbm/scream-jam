@@ -10,7 +10,11 @@ if (toggle_key) {
 		scr_deactivate();
 		option_pos = -1;
 	} else {
-		scr_activate();
+		// In general, we should implement flags in obj_game
+		// and logic here to determine whether it's appropriate to open the map or not
+		if (instance_number(obj_textbox) < 1) {
+			scr_activate();
+		}
 	}
 };
 

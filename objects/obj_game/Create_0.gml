@@ -18,11 +18,16 @@ state = {
 	flags : {}	
 }
 state.flags = {
-	flag_1: false,
-	flag_2: false,
+	street_convo: false, // Set to true when the street conversation is completed
+	shop_convo: false, // Set to true when the shop conversation is completed
 	flag_3: false
 }
 
 // We will set up music logic later on in the game
 // init_setup = false;
 // instance_create_depth(0,0,0,obj_music);
+
+scr_obj_init();
+
+save_key = false;
+load_key = false;

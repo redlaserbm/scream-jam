@@ -11,6 +11,8 @@ function scr_textbox_create(_text_id, _dictionary = global.dictionary) {
 		state.text_id = _text_id;
 		state.dictionary = _dictionary;
 		
+		show_debug_message("scr_textbox_create: " + string(_textbox.state));
+		
 		// Populate the textbox with conversation information
 		_dictionary(_text_id);
 	}

@@ -8,6 +8,7 @@ function scr_dict_prototype(_text_id){
 			scr_text(spr_temmie, 1, "I feel like you would get groomed on VRChat.");
 			scr_text(spr_laser, 1, "(What a horrifying thing for her to say...)");
 			scr_text(spr_laser, 1, "(How do I respond to something like that?)");
+			obj_game.state.flags.street_convo = true;
 			scr_option("Cry like a bitch", "street_bitch");
 			scr_option("Stand up to Temmie", "street_standup");
 			break;
@@ -30,6 +31,7 @@ function scr_dict_prototype(_text_id){
 			scr_text(spr_laser,		1, "Yes you did.");
 			scr_text(spr_temmie,	1, "Hoe.");
 			scr_text(spr_laser,		1, "...");
+			obj_game.state.flags.shop_convo = true;
 			break;
 	};
 };

@@ -25,5 +25,7 @@ switch (room) {
 
 // Always trigger the street convo upon entering the street
 if (room == rm_test_street) {
-	scr_textbox_create("street");
-};
+	if !(state.flags.street_convo) { scr_textbox_create("street") };
+} else if (room == rm_test_shop) {
+	if !(state.flags.shop_convo) { scr_textbox_create("shop") };	
+}
