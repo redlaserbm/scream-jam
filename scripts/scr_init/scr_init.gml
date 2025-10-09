@@ -6,6 +6,7 @@
 speaker = ds_map_create();
 ds_map_add(speaker, spr_temmie, "Temmie");
 ds_map_add(speaker, spr_laser, "Laser");
+ds_map_add(speaker, spr_researcher, "Researcher");
 
 // ### FONT ###
 

@@ -95,7 +95,7 @@ function scr_remove_items(_items = [], _context = obj_inventory, _instant = fals
 	}	
 }
 
-function scr_goto(_name, _dictionary = scr_dialogue){
+function scr_goto(_name, _dictionary = global.dictionary){
 	// This script is useful if there's multiple lines of dialogue that need to lead into the same text at the end 
 	goto_string = _name;
 	var _method = function() { 

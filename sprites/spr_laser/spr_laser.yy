@@ -4,7 +4,7 @@
   "bboxMode":0,
   "bbox_bottom":479,
   "bbox_left":0,
-  "bbox_right":614,
+  "bbox_right":632,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,15 +12,15 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"4e14ddfb-788e-4ee5-91a0-1aaf40c5bece","name":"4e14ddfb-788e-4ee5-91a0-1aaf40c5bece","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"b0d2adb3-f743-4d1f-bf18-587e12de8d7c","name":"b0d2adb3-f743-4d1f-bf18-587e12de8d7c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"6e05b571-ecff-409b-b62b-119f9ff77bb6","name":"6e05b571-ecff-409b-b62b-119f9ff77bb6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"43844b6c-c715-4b68-b653-08be8aa5cdc9","name":"43844b6c-c715-4b68-b653-08be8aa5cdc9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":480,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"5cb08160-3865-4a06-a7fe-f8b514ee560c","blendMode":0,"displayName":"default","isLocked":false,"name":"5cb08160-3865-4a06-a7fe-f8b514ee560c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"009d4b76-8525-4cf6-8f6f-4ab29c5059df","blendMode":0,"displayName":"default","isLocked":false,"name":"009d4b76-8525-4cf6-8f6f-4ab29c5059df","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_laser",
   "nineSlice":null,
@@ -60,7 +60,7 @@
     },
     "name":"spr_laser",
     "playback":1,
-    "playbackSpeed":30.0,
+    "playbackSpeed":0.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -72,11 +72,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4e14ddfb-788e-4ee5-91a0-1aaf40c5bece","path":"sprites/spr_laser/spr_laser.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"00cf03e8-3693-46f0-bde3-2dac744f9465","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6e05b571-ecff-409b-b62b-119f9ff77bb6","path":"sprites/spr_laser/spr_laser.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"eb5ae103-463a-4c87-82ef-72c186408986","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b0d2adb3-f743-4d1f-bf18-587e12de8d7c","path":"sprites/spr_laser/spr_laser.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"38ea09e5-8526-4cc7-9efa-d804dcef1b4e","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"43844b6c-c715-4b68-b653-08be8aa5cdc9","path":"sprites/spr_laser/spr_laser.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"388532d5-32bb-4a04-859e-8197b323b61a","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

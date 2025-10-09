@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_fast_food",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_fast_food",
+  "parent":{
+    "name":"Dictionaries",
+    "path":"folders/Scripts/Dictionaries.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

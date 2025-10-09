@@ -11,12 +11,16 @@
 // Ensure game is reading dialogue from the correct dictionary
 // The prototype can just have all text from the same dictionary,
 // but we'll want to change this later...
+
 switch (room) {
 	case rm_test_shop:
 		global.dictionary = scr_dict_prototype;
 		break;
 	case rm_test_street:
 		global.dictionary = scr_dict_prototype;
+		break;
+	case rm_research:
+		global.dictionary = scr_dict_university;
 		break;
 }
 
@@ -28,4 +32,6 @@ if (room == rm_test_street) {
 	if !(state.flags.street_convo) { scr_textbox_create("street") };
 } else if (room == rm_test_shop) {
 	if !(state.flags.shop_convo) { scr_textbox_create("shop") };	
+} else if (room == rm_research) {
+	if !(state.flags.research_convo) { scr_textbox_create("agi") };	
 }

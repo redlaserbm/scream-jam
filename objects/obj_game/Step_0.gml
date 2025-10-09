@@ -1,5 +1,5 @@
 /// @description Saving/Loading
-// You can write your code in this editor
+
 timer += 1;
 
 save_key = keyboard_check_pressed(ord("S"));

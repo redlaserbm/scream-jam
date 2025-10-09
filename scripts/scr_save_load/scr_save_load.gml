@@ -80,7 +80,8 @@ function scr_game_load(_slot = 0){
 	// Next, let's go to the room where the save file is located.
 	room_goto(_load_array.current_room);
 	
-	instance_create_depth(0,0,0,obj_load, {load_array: _load_array});
+	instance_create_depth(0,0,0,obj_load);
+	
 	show_debug_message("Created obj_load");
 };
 
