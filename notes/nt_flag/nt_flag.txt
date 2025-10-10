@@ -1,0 +1,3 @@
+At times, conversations will need to trigger *flags*, which is what the game uses to
+track whether certain milestones have been reached or not. It is important that we
+use scr_flag(...) for this purpose to avoid the game breaking during save/load procedures.

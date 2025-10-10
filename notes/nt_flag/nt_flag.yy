@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"nt_flag",
+  "name":"nt_flag",
+  "parent":{
+    "name":"Dictionaries",
+    "path":"folders/Scripts/Dictionaries.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

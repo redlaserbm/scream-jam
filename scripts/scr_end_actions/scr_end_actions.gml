@@ -125,10 +125,10 @@ function scr_flag(_name, _instant = false, _value = true){
 	value = _value;
 	
 	if _instant {
-		struct_set_from_hash(obj_game.flags, hash, value);
+		struct_set_from_hash(obj_game.state.flags, hash, value);
 	} else {
 		var _method = function() {
-			struct_set_from_hash(obj_game.flags, hash, value);
+			struct_set_from_hash(obj_game.state.flags, hash, value);
 		}
 		array_push(end_action, _method);
 	}

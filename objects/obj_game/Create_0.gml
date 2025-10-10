@@ -16,13 +16,20 @@ game_loaded = false;
 // Question: If we load a save state, how does obj_game know to update these flags?
 state = {
 	flags : {}	
-}
+};
+
 state.flags = {
 	street_convo: false, // Set to true when the street conversation is completed
 	shop_convo: false, // Set to true when the shop conversation is completed
 	research_convo: false, // Set to true when the research conversation is completed
-	flag_3: false
-}
+	flag_3: false,
+	
+	give_up: false, // This flag is used to require the player to pick the same option *twice* to give up on recovering Laser
+	
+	researcher_threaten: false, // Set to true if Temmie threatens the researcher
+	researcher_strangle: false, // Set to true if Temmie strangles the researcher
+	researcher_standdown: false	// Set to true if Temmie gives up on saving Laser
+};
 
 // We will set up music logic later on in the game
 // init_setup = false;
