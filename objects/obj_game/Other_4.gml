@@ -33,7 +33,10 @@ if (room == rm_chinese) {
 } else if (room == rm_test_shop) {
 	if !(state.flags.shop_convo) { scr_textbox_create("shop") };	
 } else if (room == rm_research) {
-	if !(state.flags.research_convo) { scr_textbox_create("agi") };	
+	if !(state.flags.research_convo_start) { 
+		show_debug_message("obj_game: Triggered textbox agi");
+		scr_textbox_create("agi") 
+	};	
 } else if (room == rm_hallway) {
 	
 	// The end conversation that triggers in the hallway depends on what Temmie did
@@ -46,3 +49,10 @@ if (room == rm_chinese) {
 		scr_textbox_create("epilogue_standdown");	
 	};
 }
+
+// Identify what the current room is using as a background sprite
+var _layer_id = layer_get_id("Background");
+var _background_id = layer_background_get_id(_layer_id);
+	
+// What is the current background sprite?
+state.background_sprite = layer_background_get_sprite(_background_id);

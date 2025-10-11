@@ -78,6 +78,7 @@ function scr_dict_chinese(_text_id){
 			scr_text(spr_narrator, 0, "(Oh jeez, this is not gonna end well...)");
 			scr_text(spr_customer, 1, "What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and---", [scr_force_go()]);
 			scr_text(spr_temmie, 1, "*Takes an egg roll and shoves it down the customer's throat.*");
+			scr_text(spr_narrator, 1, "(The customer is now dead. Great job.)");
 			scr_goto("choked_out");
 			break;
 			
@@ -106,7 +107,7 @@ function scr_dict_chinese(_text_id){
 			break;
 			
 		case "shrimp_fried_rice":
-			scr_text(spr_narrator, 0, "(Note to self, add dialogue here to cover Laser going missing...)");
+			scr_text(spr_narrator, 0, "(Some hours later, uh, Laser went missing. I need to add more dialogue here lol.)");
 			scr_text(spr_temmie, 1, "Wait, if Laser went missing... Who's frying the rice?");
 			scr_text(spr_shrimp, 1, "...");
 			scr_text(spr_temmie, 1, "...");

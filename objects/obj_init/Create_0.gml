@@ -2,7 +2,7 @@
 // Creates all persistent objects responsible for tracking the state of the game
 // Then, destroys itself;
 
-objects = [obj_game, obj_logger, obj_itemizer, obj_map];
+objects = [obj_game, obj_logger, obj_itemizer, obj_map, obj_music];
 
 for (var _i = 0; _i < array_length(objects); _i++) {
 	if (instance_number(objects[_i]) < 1) {

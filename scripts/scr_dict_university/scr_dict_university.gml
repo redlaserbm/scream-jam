@@ -5,6 +5,8 @@ function scr_dict_university(_text_id){
 		
 		// Temmie first enters the research lab
 		case "agi":
+			obj_game.state.flags.research_convo_start = true;
+			scr_text(spr_narrator, 0, "(You manage to find Laser deep in some research lab at the local university)");
 			scr_text(spr_temmie, 0, "Laser?");
 			scr_text(spr_temmie, 0, "What are you doing here, bro?");
 			scr_text(spr_laser, 0, "...");
@@ -105,7 +107,7 @@ function scr_dict_university(_text_id){
 			// If the player wants Temmie to give up...
 			case "care_give_up":
 				if (!obj_game.state.flags.give_up) {
-					scr_text(spr_temmie, 1, "(Hmm... I don't like Laser that much, but I also kind of want to strangle this guy. Maybe you can pick something else?");
+					scr_text(spr_temmie, 1, "(Hmm... I don't like Laser that much, but I also kind of want to strangle this guy. Maybe you can pick something else?)");
 					// FLAGS
 					scr_flag("give_up");
 					scr_goto("care_choice");

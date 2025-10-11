@@ -52,7 +52,7 @@ function scr_game_unload() {
 	
 	// Destroy other objects
 	instance_destroy(obj_itemizer);
-	// instance_destroy(obj_music);
+	instance_destroy(obj_music);
 }
 
 function scr_game_load(_slot = 0){
@@ -123,9 +123,20 @@ function scr_game_build(_load_array) {
 		}
 	}
 	
-	// This code is probably redundant. We will address this soon.
+	// Change the background if necessary
+	var _layer_id = layer_get_id("Background");
+	var _background_id = layer_background_get_id(_layer_id);
 	
+	// What is the current background sprite?
+	var _background_sprite = layer_background_get_sprite(_background_id);
+		
+	show_debug_message("scr_game_build: Old bg sprite - " + string(_background_sprite));
+	show_debug_message("scr_game_build: New bg sprite - " + string(_load_array.background_sprite));
 	
+	// Instantly change the background, but add a fade to disguise this *instantaneous* nature of the change
+	layer_background_sprite(_background_id, _load_array.background_sprite);
+	
+	obj_game.state.background_sprite = _load_array.background_sprite;
 	//}
 	
 	show_debug_message("scr_game_load: Loaded game!");

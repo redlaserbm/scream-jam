@@ -69,7 +69,7 @@ if state.active && (instance_number(obj_transition) < 1 && instance_number(obj_b
 		draw_char += text_speed;
 		draw_char = clamp(draw_char, 0, text_length[page]); 
 		if (draw_char % 2) == 0 {
-			// audio_play_sound(snd_blip, 1, false,0.25*global.settings.volume*global.settings.volume_sfx);
+			audio_play_sound(sfx_blip, 1, false, global.volume.master*global.volume.sfx);
 		}
 	}
 	

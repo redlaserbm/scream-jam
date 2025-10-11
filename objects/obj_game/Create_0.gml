@@ -15,7 +15,10 @@ game_loaded = false;
 
 // Question: If we load a save state, how does obj_game know to update these flags?
 state = {
-	flags : {}	
+	flags : {}	,
+	
+	background_sprite: false // Tracks what sprite the current room is using for the background
+	// We need this in order for visuals to appear accurate after saving/loading
 };
 
 state.flags = {
@@ -23,7 +26,7 @@ state.flags = {
 	
 	shop_convo_start: false, // Set to true when the dialogue for the shop convo is triggered
 	shop_convo: false, // Set to true when the shop conversation is completed
-	research_convo: false, // Set to true when the research conversation is completed
+	research_convo_start: false, // Set to true when the research conversation is started
 	flag_3: false,
 	
 	give_up: false, // This flag is used to require the player to pick the same option *twice* to give up on recovering Laser

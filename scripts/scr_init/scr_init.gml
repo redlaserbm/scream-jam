@@ -11,6 +11,16 @@ ds_map_add(speaker, spr_shrimp, "Shrimp");
 ds_map_add(speaker, spr_customer, "Customer");
 ds_map_add(speaker, spr_narrator, "Narrator");
 
+// ### AUDIO ###
+volume = {
+	master: 1,
+	music: 1,
+	sfx: 1
+};
+
+// Determines where to loop certain music tracks
+audio_sound_loop_start(mus_china, 14.121);
+
 // ### FONT ###
 
 // What font will we use for drawing text? What color should that font be?

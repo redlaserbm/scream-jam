@@ -188,6 +188,9 @@ function scr_change_atmosphere(_bg) {
 		// Instantly change the background, but add a fade to disguise this *instantaneous* nature of the change
 		instance_create_depth(0,0,0, obj_bg_change, {old_bg_spr: _background_sprite});
 		layer_background_sprite(_background_id, e_bg);
+		
+		// Make sure obj_game knows this change occurred for proper saving/loading
+		obj_game.state.background_sprite = e_bg;
 	};
 	array_push(end_action, _method);
 		
