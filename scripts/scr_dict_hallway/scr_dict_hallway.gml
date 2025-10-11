@@ -10,7 +10,8 @@ function scr_dict_hallway(_text_id){
 			scr_text(spr_laser, 1, "Mhmm.... Is that *really* what happened?");
 			scr_text(spr_temmie, 1, "Of course!");
 			scr_text(spr_laser, 1, "Somehow, I find it a bit difficult to trust you...");
-			scr_text(spr_laser, 1, "Anyways! Remember that meme that I sent, where it's like, \"if your name starts with a T, you owe whoever sent you this cookies\"?");
+			scr_text(spr_laser, 1, "Anyways! Remember that meme that I sent you yesterday, where it's like...");
+			scr_text(spr_laser, 1, "\"If your name starts with a T, you owe whoever sent you this cookies\"?");
 			scr_text(spr_temmie, 1, "(Jesus christ I really don't wanna do this right now...)");
 			scr_text(spr_laser, 1, "Can we get cookies? Except you have to pay, since your name starts with a T, like in the meme, y'kn---", [scr_force_go()]);
 			scr_text(spr_temmie, 1, "No.");

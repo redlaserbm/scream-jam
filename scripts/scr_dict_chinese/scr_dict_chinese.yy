@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_dict_prototype",
+  "%Name":"scr_dict_chinese",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_dict_prototype",
+  "name":"scr_dict_chinese",
   "parent":{
     "name":"Dictionaries",
     "path":"folders/Scripts/Dictionaries.yy",

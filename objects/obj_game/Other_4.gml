@@ -11,10 +11,10 @@
 // Ensure game is reading dialogue from the correct dictionary
 switch (room) {
 	case rm_test_shop:
-		global.dictionary = scr_dict_prototype;
+		global.dictionary = scr_dict_chinese;
 		break;
-	case rm_test_street:
-		global.dictionary = scr_dict_prototype;
+	case rm_chinese:
+		global.dictionary = scr_dict_chinese;
 		break;
 	case rm_research:
 		global.dictionary = scr_dict_university;
@@ -28,8 +28,8 @@ switch (room) {
 // The reason for having separate objects over containing everything in obj_game is code cleanliness purposes
 
 // Always trigger the street convo upon entering the street
-if (room == rm_test_street) {
-	if !(state.flags.street_convo) { scr_textbox_create("street") };
+if (room == rm_chinese) {
+	if !(state.flags.shop_convo_start) { scr_textbox_create("chinese") };
 } else if (room == rm_test_shop) {
 	if !(state.flags.shop_convo) { scr_textbox_create("shop") };	
 } else if (room == rm_research) {

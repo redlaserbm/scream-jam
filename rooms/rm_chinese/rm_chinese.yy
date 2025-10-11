@@ -1,12 +1,12 @@
 {
   "$GMRoom":"v1",
-  "%Name":"rm_test_street",
+  "%Name":"rm_chinese",
   "creationCodeFile":"",
   "inheritCode":true,
   "inheritCreationOrder":true,
   "inheritLayers":true,
   "instanceCreationOrder":[
-    {"name":"inst_A4604CF","path":"rooms/rm_test_street/rm_test_street.yy",},
+    {"name":"inst_A4604CF","path":"rooms/rm_chinese/rm_chinese.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -15,7 +15,7 @@
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"bg_china","path":"sprites/bg_china/bg_china.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"rm_test_street",
+  "name":"rm_chinese",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",

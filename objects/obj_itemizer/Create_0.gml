@@ -5,7 +5,7 @@ room_setup = false;
 // For each room, list the items that can be interacted with in that room
 room_items = ds_map_create();
 ds_map_add(room_items, rm_test_shop, [itm_poster]);
-ds_map_add(room_items, rm_test_street, [itm_sign]);
+ds_map_add(room_items, rm_chinese, [itm_sign]);
 // ds_map_add(room_items, rm_road, [itm_leif, itm_tree, itm_car, itm_jakkop]);
 
 active_items = []; // Array of items in the current room.

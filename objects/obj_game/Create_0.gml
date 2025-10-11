@@ -20,6 +20,8 @@ state = {
 
 state.flags = {
 	street_convo: false, // Set to true when the street conversation is completed
+	
+	shop_convo_start: false, // Set to true when the dialogue for the shop convo is triggered
 	shop_convo: false, // Set to true when the shop conversation is completed
 	research_convo: false, // Set to true when the research conversation is completed
 	flag_3: false,

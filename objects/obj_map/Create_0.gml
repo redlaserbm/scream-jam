@@ -20,7 +20,7 @@ append_location = function(_room, _display_name) {
 };
 
 // Map locations
-append_location(rm_test_street, "Street");
+append_location(rm_chinese, "Street");
 append_location(rm_test_shop, "Shop");
 append_location(rm_research, "University");
 

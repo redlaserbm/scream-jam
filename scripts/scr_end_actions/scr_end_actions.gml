@@ -169,7 +169,29 @@ function scr_atmosphere(_bg = ds_map_find_value(global.room_bg, room), _snd = ds
 			bg_music_new = end_snd;
 		}
 	}
-}
+};
+
+function scr_change_atmosphere(_bg) {
+	e_bg = _bg;
+	// First, get the background ID
+	var _method = function() {
+		show_debug_message("scr_change_atmosphere: Firing!")
+		var _layer_id = layer_get_id("Background");
+		var _background_id = layer_background_get_id(_layer_id);
+	
+		// What is the current background sprite?
+		var _background_sprite = layer_background_get_sprite(_background_id);
+		
+		show_debug_message("scr_change_atmosphere: Old bg sprite - " + string(_background_sprite));
+		show_debug_message("scr_change_atmosphere: New bg sprite - " + string(e_bg));
+	
+		// Instantly change the background, but add a fade to disguise this *instantaneous* nature of the change
+		instance_create_depth(0,0,0, obj_bg_change, {old_bg_spr: _background_sprite});
+		layer_background_sprite(_background_id, e_bg);
+	};
+	array_push(end_action, _method);
+		
+};
 
 function scr_open_inventory(_context = noone) {
 	// Opens the inventory

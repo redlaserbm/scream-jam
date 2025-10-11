@@ -5,12 +5,16 @@ function scr_dict_university(_text_id){
 		
 		// Temmie first enters the research lab
 		case "agi":
-			scr_text(spr_temmie, 0, "Laser?", [scr_draw_sprite(bg_laser_decomissioned,0,0,0)]);
-			scr_text(spr_temmie, 0, "What are you doing here, bro?", [scr_draw_sprite(bg_laser_decomissioned,0,0,0)]);
-			scr_text(spr_laser, 0, "...", [scr_draw_sprite(bg_laser_decomissioned,0,0,0)]);
-			scr_text(spr_researcher, 0, "Hmm? Is someone at the door?", [scr_draw_sprite(bg_laser_decomissioned,0,0,0)]);
-			scr_text(spr_temmie, 0, "(What's happening here?)", [scr_draw_sprite(bg_laser_decomissioned,0,0,0)]);
-			
+			scr_text(spr_temmie, 0, "Laser?");
+			scr_text(spr_temmie, 0, "What are you doing here, bro?");
+			scr_text(spr_laser, 0, "...");
+			scr_text(spr_researcher, 0, "Hmm? Is someone at the door?");
+			scr_text(spr_temmie, 0, "(What's happening here?)");
+			scr_change_atmosphere(bg_research);
+			scr_goto("agi_1");
+			break;
+		
+		case "agi_1":
 			scr_text(spr_researcher, 1, "Ahem...");
 			scr_text(spr_researcher, 1, "Well, this is a curious predicament. What are you doing in my research space?");
 			scr_text(spr_temmie, 1, "I'm looking for my coworker.");
@@ -91,7 +95,7 @@ function scr_dict_university(_text_id){
 			case "care_choke":
 				scr_text(spr_temmie, 1, "Fine.");
 				scr_text(spr_temmie, 1, "I'll just handle you like I handled the last customer I dealt with today.");
-				scr_text(spr_researcher, 1, "Is that an eggroll? What are you going to do with an eggr---");
+				scr_text(spr_researcher, 1, "Is that an egg roll? What are you going to do with an egg r---", [scr_force_go()]);
 				scr_text(spr_researcher, 1, "*Sounds of choking to death on the eggroll that comes with the shrimp fried rice*");
 				// FLAGS
 				scr_flag("researcher_strangle");

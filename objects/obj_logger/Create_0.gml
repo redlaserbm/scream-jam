@@ -20,7 +20,7 @@ depth = scr_front();
 
 nameplate_border_x = 20;
 nameplate_border_y = 25;
-nameplate_width = 150;
+nameplate_width = 175;
 
 // We want to contain text on the right side of the screen,
 // And leave a little room on the left to indicate who is speaking.

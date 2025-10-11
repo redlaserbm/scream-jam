@@ -51,9 +51,12 @@ if !setup {
 	show_debug_message("textbox[" + string(id) + "] text_id: " + state.text_id);
 };
 
+// If there are any transition objects, manually turn the textbox off
+// Warning: This solution might incur tech-debt...
+
 // There are certain scenarios in which I may want the textbox to exist but be inactive, such as
 // looking at the logs while mid-conversation.
-if state.active {
+if state.active && (instance_number(obj_transition) < 1 && instance_number(obj_bg_change) < 1) {
 	
 	// Display accompanying image with text (other than portrait) or more!
 	for (var _i = 0; _i < array_length(methods[page]); _i++) {
