@@ -40,7 +40,6 @@ if !setup {
 	// How high should the options textbox be?
 	option_height = 2*settings.option_border_y + settings.line_sep*(option_number-1) + string_height(option[option_number-1]);
 	
-	// TODO: Introduce obj_logger
 	if instance_number(obj_logger) > 0 {
 		obj_logger.append_entry(text[page], portrait[page]); 
 		//obj_logger.ind += 1;
@@ -49,6 +48,7 @@ if !setup {
 	}
 	
 	show_debug_message("textbox[" + string(id) + "] text_id: " + state.text_id);
+	// scr_game_save();
 };
 
 // If there are any transition objects, manually turn the textbox off

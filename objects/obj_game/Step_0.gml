@@ -10,3 +10,5 @@ if (save_key) {
 } else if (load_key) {
 	scr_game_load();	
 };
+
+// DEV NOTE: This code may not follow best practices

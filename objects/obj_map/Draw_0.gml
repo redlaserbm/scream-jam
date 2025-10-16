@@ -12,7 +12,7 @@ if (toggle_key) {
 	} else {
 		// In general, we should implement flags in obj_game
 		// and logic here to determine whether it's appropriate to open the map or not
-		if (instance_number(obj_textbox) < 1) {
+		if (instance_number(obj_textbox) < 1) && (room != rm_main_menu) {
 			scr_activate();
 		}
 	}

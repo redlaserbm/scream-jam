@@ -79,39 +79,80 @@ function scr_dict_chinese(_text_id){
 			scr_text(spr_customer, 1, "What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and---", [scr_force_go()]);
 			scr_text(spr_temmie, 1, "*Takes an egg roll and shoves it down the customer's throat.*");
 			scr_text(spr_narrator, 1, "(The customer is now dead. Great job.)");
-			scr_goto("choked_out");
+			scr_goto("temmie_is_curious");
 			break;
 			
-		case "choked_out":
-			scr_text(spr_narrator, 0, "(The commotion draws Laser's attention, and he walks to you.)");
-			scr_text(spr_laser, 1, "Hey uh, Temmie?");
-			scr_text(spr_temmie, 1, "Hmm? Something the matter?");
-			scr_text(spr_laser, 1, "Uhhh... Well... I just noticed there's yet another lifeless corpse on the ground with their trachea blockaded by an egg roll.");
-			scr_text(spr_temmie, 1, "And?");
-			scr_text(spr_laser, 1, "How are we gonna explain the third death by eggroll induced asphyxiation this month to the bossman?");
-			scr_text(spr_temmie, 1, "Uhh... I dunno.");
-			scr_text(spr_temmie, 1, "He just choked on the eggroll bro. On accident.");
-			scr_text(spr_laser, 1, "Really...");
-			scr_text(spr_temmie, 1, "Mhmm!");
-			scr_text(spr_laser, 1, "(I'm not gonna lie, you scare the shit outta me sometimes...)");
-			scr_text(spr_temmie, 1, "I can read the dialogue boxes too, y'know?");
-			scr_text(spr_temmie, 1, "You're thoughts aren't safe.");
-			scr_text(spr_laser, 1, "*Your");
-			scr_text(spr_temmie, 1, "That doesn't make any---", [scr_force_go()]);
-			scr_text(spr_laser, 1, "Laser 1, Temmie 0");
-			scr_text(spr_temmie, 1, "(You're next...)");
-			scr_text(spr_laser, 1, "Anyways...");
-			scr_text(spr_laser, 1, "I'm gonna get back to frying rice, bug me if you need me.");
-			scr_text(spr_temmie, 1, "K.");
-			scr_goto("shrimp_fried_rice");
+		//case "choked_out":
+		//	scr_text(spr_narrator, 0, "(The commotion draws Laser's attention, and he walks to you.)");
+		//	scr_text(spr_laser, 1, "Hey uh, Temmie?");
+		//	scr_text(spr_temmie, 1, "Hmm? Something the matter?");
+		//	scr_text(spr_laser, 1, "Uhhh... Well... I just noticed there's yet another lifeless corpse on the ground with their trachea blockaded by an egg roll.");
+		//	scr_text(spr_temmie, 1, "And?");
+		//	scr_text(spr_laser, 1, "How are we gonna explain the third death by eggroll induced asphyxiation this month to the bossman?");
+		//	scr_text(spr_temmie, 1, "Uhh... I dunno.");
+		//	scr_text(spr_temmie, 1, "He just choked on the eggroll bro. On accident.");
+		//	scr_text(spr_laser, 1, "Really...");
+		//	scr_text(spr_temmie, 1, "Mhmm!");
+		//	scr_text(spr_laser, 1, "(I'm not gonna lie, you scare the shit outta me sometimes...)");
+		//	scr_text(spr_temmie, 1, "I can read the dialogue boxes too, y'know?");
+		//	scr_text(spr_temmie, 1, "You're thoughts aren't safe.");
+		//	scr_text(spr_laser, 1, "*Your");
+		//	scr_text(spr_temmie, 1, "That doesn't make any---", [scr_force_go()]);
+		//	scr_text(spr_laser, 1, "Laser 1, Temmie 0");
+		//	scr_text(spr_temmie, 1, "(You're next...)");
+		//	scr_text(spr_laser, 1, "Anyways...");
+		//	scr_text(spr_laser, 1, "I'm gonna get back to frying rice, bug me if you need me.");
+		//	scr_text(spr_temmie, 1, "K.");
+		//	scr_goto("shrimp_fried_rice");
+		//	break;
+		
+		case "temmie_is_curious":
+			scr_text(spr_temmie, 1, "Hmm... It's been a bit since I've seen Laser. Maybe I should check up on him real quick?");
+			scr_option("Yeah, sure.", "laser_checkup");
+			scr_option("No, he's probably fine.", "laser_ignore");
 			break;
+			
+			case "laser_ignore":
+				scr_text(spr_narrator, 1, "(Listen, I know I gave you the choice to ignore him, but you should probably check up on him...");
+				scr_text(spr_narrator, 1, "(I'm just saying...)");
+				scr_goto("temmie_is_curious");
+				break;
+			
+			case "laser_checkup":
+				scr_text(spr_temmie, 1, "Yo, Laser. Where u at?");
+				scr_text(spr_narrator, 1, "(No response.)");
+				scr_text(spr_temmie, 1, "Hmm...");
+				scr_text(spr_temmie, 1, "Laser?");
+				scr_text(spr_narrator, 1, "(Still no response.)");
+				scr_text(spr_temmie, 1, "(Hm... I shouldn't leave the register empty, but...)");
+				scr_option("Keep calling out for Laser", "laser_checkup_persist");
+				scr_option("Go to the kitchen area", "laser_checkup_move");
+				break;
+			
+				case "laser_checkup_persist":
+					scr_text(spr_temmie, 1, "Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser Laser", [scr_force_go()]);
+					scr_text(spr_temmie, 1, "...");
+					scr_text(spr_temmie, 1, "(I'm just gonna go back there...)");
+					scr_goto("laser_checkup_move");
+					break;
+				
+				case "laser_checkup_move":
+					scr_text(spr_narrator, 1, "(You move to the kitchen...)");
+					scr_change_atmosphere(bg_kitchen);
+					scr_goto("laser_checkup_move_1");
+					break;
+					
+				case "laser_checkup_move_1":
+					scr_text(spr_narrator, 1, "(Laser isn't here...)");
+					scr_text(spr_temmie, 1, "Okay... No Laser, but you are?");
+					scr_text(spr_shrimp, 1, "(...)");
+					scr_text(spr_temmie, 1, "And you've been frying this rice the whole time?")
+					scr_text(spr_shrimp, 1, "(...)");
+					scr_text(spr_temmie, 1, "Great.");
+					scr_goto("shrimp_fried_rice");
+					break;
 			
 		case "shrimp_fried_rice":
-			scr_text(spr_narrator, 0, "(Some hours later, uh, Laser went missing. I need to add more dialogue here lol.)");
-			scr_text(spr_temmie, 1, "Wait, if Laser went missing... Who's frying the rice?");
-			scr_text(spr_shrimp, 1, "...");
-			scr_text(spr_temmie, 1, "...");
-			scr_text(spr_temmie, 1, "I'm disappointed.");
 			scr_text(spr_temmie, 1, "Anyways, I guess I should try and figure out where Laser is...");
 			scr_flag("shop_convo");
 			scr_room_goto(rm_research);

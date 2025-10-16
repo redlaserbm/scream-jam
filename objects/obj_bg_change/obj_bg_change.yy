@@ -9,8 +9,8 @@
   "name":"obj_bg_change",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Helpers",
+    "path":"folders/Objects/Helpers.yy",
   },
   "parentObjectId":{
     "name":"obj_interactable",

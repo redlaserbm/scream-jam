@@ -17,7 +17,9 @@ if (toggle_key) {
 	if (state.active) {
 		scr_deactivate();	
 	} else {
-		scr_activate();
+		if room != rm_main_menu {
+			scr_activate();
+		}
 	}
 };
 

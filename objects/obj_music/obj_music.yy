@@ -11,11 +11,14 @@
   "name":"obj_music",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Game Management",
+    "path":"folders/Objects/Game Management.yy",
   },
-  "parentObjectId":null,
-  "persistent":false,
+  "parentObjectId":{
+    "name":"obj_interactable",
+    "path":"objects/obj_interactable/obj_interactable.yy",
+  },
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,

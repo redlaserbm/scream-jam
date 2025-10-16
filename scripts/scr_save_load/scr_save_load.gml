@@ -28,6 +28,7 @@ function scr_game_save(_slot = 0){
 	buffer_delete(_buffer);
 	
 	show_debug_message(_game_data);
+	instance_create_depth(0,0,0, obj_message, {display_text:"Game saved"});
 	
 	//Display a message showing that the game was saved.
 	// obj_game.alarm[1] = 60;
@@ -111,7 +112,12 @@ function scr_game_build(_load_array) {
 						
 						scr_textbox_create(_load_array.obj_textbox.text_id, _load_array.obj_textbox.dictionary);
 						with (obj_textbox) {
-							page = _load_array.obj_textbox.page;
+							if variable_instance_exists(_load_array.obj_textbox, "page") {
+								page = _load_array.obj_textbox.page;
+							} else {
+								page = 0;	
+							}
+							
 						}
 					}
 				} else {

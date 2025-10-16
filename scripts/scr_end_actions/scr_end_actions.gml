@@ -108,7 +108,7 @@ function scr_room_goto(_name, _instant = false){
 	room_name = _name;
 	
 	if _instant {
-		instance_create_depth(0,0,depth-1,obj_transition, {target_room: room_name})
+		instance_create_depth(0,0,depth-1,obj_transition, {target_room: room_name});
 	} else {
 		var _method = function() {
 			if room_exists(room_name) {

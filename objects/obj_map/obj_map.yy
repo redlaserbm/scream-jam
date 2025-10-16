@@ -9,8 +9,8 @@
   "name":"obj_map",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Game Management",
+    "path":"folders/Objects/Game Management.yy",
   },
   "parentObjectId":{
     "name":"obj_interactable",
