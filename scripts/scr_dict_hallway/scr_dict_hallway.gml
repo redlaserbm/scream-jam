@@ -4,6 +4,7 @@ function scr_dict_hallway(_text_id){
 	
 	switch(_text_id){
 		case "epilogue_strangle":
+			scr_flag("hallway_convo_start", true);
 			scr_text(spr_narrator, 1, "Some moments later...");
 			scr_text(spr_laser, 1, "Okay, so... About the lifeless body I saw when I came to aga---", [scr_force_go()]);
 			scr_text(spr_temmie, 1, "Accident. He was like that when I got here. Must've been from his lunch.");
@@ -17,17 +18,29 @@ function scr_dict_hallway(_text_id){
 			scr_text(spr_temmie, 1, "No.");
 			scr_text(spr_laser, 1, "You're no fun.");
 			scr_text(spr_temmie, 1, "Deal with it.");
+			scr_goto("game_end");
 			break;
 			
 		case "epilogue_threaten":
+			scr_flag("hallway_convo_start", true);
 			scr_text(spr_narrator, 1, "Some moments later...");
 			scr_text(spr_temmie, 1, "And that's why all you need to do sometimes is threaten people to get your way!");
 			scr_text(spr_laser, 1, "Cool.");
+			scr_goto("game_end");
 			break;
 			
 		case "epilogue_standdown":
-			scr_text(spr_narrator, 1, "Some moments later...");
+			scr_flag("hallway_convo_start", true);
+			scr_text(spr_narrator, 1, "(Some moments later...)");
 			scr_text(spr_temmie, 1, "Damn, this coffee is really good.");
+			scr_goto("game_end");
+			break;
+			
+		case "game_end":
+			scr_text(spr_narrator, 1, "And so, the world kept spinning...");
+			array_push(end_action, function() {
+				instance_create_depth(0,0,scr_front(), obj_victory);	
+				});
 			break;
 	}
 

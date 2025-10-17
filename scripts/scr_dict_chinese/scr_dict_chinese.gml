@@ -154,21 +154,8 @@ function scr_dict_chinese(_text_id){
 			
 		case "shrimp_fried_rice":
 			scr_text(spr_temmie, 1, "Anyways, I guess I should try and figure out where Laser is...");
-			scr_flag("shop_convo");
 			scr_room_goto(rm_research);
 			break;
 			
-		case("shop"):
-			scr_text(spr_laser,		1, "Huh, you're here too?");
-			scr_text(spr_temmie,	1, "I'm everywhere, bro.");
-			scr_text(spr_laser,		1, "You didn't happen to clone yourself, did you?");
-			scr_text(spr_temmie,	1, "Uh...");
-			scr_text(spr_laser,		1, "You definitely cloned yourself.");
-			scr_text(spr_temmie,	1, "No.");
-			scr_text(spr_laser,		1, "Yes you did.");
-			scr_text(spr_temmie,	1, "Hoe.");
-			scr_text(spr_laser,		1, "...");
-			obj_game.state.flags.shop_convo = true;
-			break;
 	};
 };

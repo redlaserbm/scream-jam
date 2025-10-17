@@ -29,13 +29,17 @@ switch (room) {
 
 // Always trigger the street convo upon entering the street
 if (room == rm_chinese) {
+	
 	if !(state.flags.shop_convo_start) { 
 		scr_textbox_create("chinese") 
 		obj_music.change_music(mus_china);	
 	};
 } else if (room == rm_test_shop) {
+	
 	if !(state.flags.shop_convo) { scr_textbox_create("shop") };	
+	
 } else if (room == rm_research) {
+	
 	if !(state.flags.research_convo_start) { 
 		show_debug_message("obj_game: Triggered textbox agi");
 		scr_textbox_create("agi") 
@@ -44,13 +48,16 @@ if (room == rm_chinese) {
 	
 	// The end conversation that triggers in the hallway depends on what Temmie did
 	// to the researcher in the research lab.
-	if (state.flags.researcher_threaten) {
-		scr_textbox_create("epilogue_threaten");	
-	} else if (state.flags.researcher_strangle) {
-		scr_textbox_create("epilogue_strangle");	
-	} else {
-		scr_textbox_create("epilogue_standdown");	
+	if !(state.flags.hallway_convo_start) {
+		if (state.flags.researcher_threaten) {
+			scr_textbox_create("epilogue_threaten");	
+		} else if (state.flags.researcher_strangle) {
+			scr_textbox_create("epilogue_strangle");	
+		} else {
+			scr_textbox_create("epilogue_standdown");	
+		};
 	};
+
 } else if (room == rm_main_menu) {
 	obj_music.change_music(mus_title);	
 }

@@ -71,6 +71,7 @@
     {"id":{"name":"obj_music","path":"objects/obj_music/obj_music.yy",},},
     {"id":{"name":"obj_textbox","path":"objects/obj_textbox/obj_textbox.yy",},},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},},
+    {"id":{"name":"obj_victory","path":"objects/obj_victory/obj_victory.yy",},},
     {"id":{"name":"rm_chinese","path":"rooms/rm_chinese/rm_chinese.yy",},},
     {"id":{"name":"rm_hallway","path":"rooms/rm_hallway/rm_hallway.yy",},},
     {"id":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
