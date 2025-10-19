@@ -16,6 +16,9 @@ switch (room) {
 	case rm_chinese:
 		global.dictionary = scr_dict_chinese;
 		break;
+	case rm_courtyard:
+		global.dictionary = scr_dict_courtyard;
+		break;
 	case rm_research:
 		global.dictionary = scr_dict_university;
 		break;
@@ -37,6 +40,10 @@ if (room == rm_chinese) {
 } else if (room == rm_test_shop) {
 	
 	if !(state.flags.shop_convo) { scr_textbox_create("shop") };	
+
+} else if (room == rm_courtyard) {
+	
+	if !(state.flags.courtyard_convo_start) { scr_textbox_create("flashback")};
 	
 } else if (room == rm_research) {
 	

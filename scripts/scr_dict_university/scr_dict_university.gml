@@ -6,7 +6,7 @@ function scr_dict_university(_text_id){
 		// Temmie first enters the research lab
 		case "agi":
 			obj_game.state.flags.research_convo_start = true;
-			scr_text(spr_narrator, 0, "(You manage to find Laser deep in some research lab at the local university)");
+			scr_text(spr_narrator, 0, "(You manage to find Laser at research lab at the local university)");
 			scr_text(spr_temmie, 0, "Laser?");
 			scr_text(spr_temmie, 0, "What are you doing here, bro?");
 			scr_text(spr_laser, 0, "...");
@@ -27,7 +27,8 @@ function scr_dict_university(_text_id){
 			scr_text(spr_researcher, 1, "Our intent was for a human-like robot set to live the typical human-like dream...");
 			scr_text(spr_researcher, 1, "A life story boasting a rise from a life of middling socioeconomic status, to one of very high regard.");
 			scr_text(spr_researcher, 1, "Well, unfortunately, he only ever seemed capable of achieving the \"rags\" part in the rags-to-riches story.");
-			scr_text(spr_researcher, 1, "From this revelation, he was a failure and a disgrace to the work of our research team.");
+			scr_text(spr_researcher, 1, "Also, he seemed really into this rather niche genre of music called \"lofi hip-hop\", which I could never grasp myself...");
+			scr_text(spr_researcher, 1, "Anyways, from this revelation, he was a failure and a disgrace to the work of our research team.");
 			scr_text(spr_researcher, 1, "I had to see at once that he was disassembled for further study, to prevent further failure.");
 			
 			scr_text(spr_temmie, 1, "Okay uhh... Is there a reason he looks like he's being held prisoner right now?");
@@ -98,7 +99,7 @@ function scr_dict_university(_text_id){
 				scr_text(spr_temmie, 1, "Fine.");
 				scr_text(spr_temmie, 1, "I'll just handle you like I handled the last customer I dealt with today.");
 				scr_text(spr_researcher, 1, "Is that an egg roll? What are you going to do with an egg r---", [scr_force_go()]);
-				scr_text(spr_researcher, 1, "*Sounds of choking to death on the eggroll that comes with the shrimp fried rice*");
+				scr_text(spr_researcher, 1, "*Sounds of choking to death on the egg roll that comes with the shrimp fried rice*");
 				// FLAGS
 				scr_flag("researcher_strangle");
 				scr_room_goto(rm_hallway);
@@ -107,7 +108,7 @@ function scr_dict_university(_text_id){
 			// If the player wants Temmie to give up...
 			case "care_give_up":
 				if (!obj_game.state.flags.give_up) {
-					scr_text(spr_temmie, 1, "(Hmm... I don't like Laser that much, but I also kind of want to strangle this guy. Maybe you can pick something else?)");
+					scr_text(spr_temmie, 1, "(I don't like Laser that much, but I also kind of want to strangle this guy. Maybe you can pick something else?)");
 					// FLAGS
 					scr_flag("give_up");
 					scr_goto("care_choice");

@@ -14,6 +14,12 @@ function scr_dict_chinese(_text_id){
 				scr_text(spr_narrator, 0, "(Left-clicking after all dialogue appears on screen advances to the next textbox.)");
 				scr_text(spr_narrator, 0, "(Left-clicking while text is appearing on screen causes all text for the textbox to instantaneously appear.)");
 				scr_text(spr_narrator, 0, "(You can skip large chunks of dialogue at once by using right-click.");
+				scr_text(spr_narrator, 0, "(Try right-clicking this dialogue box to see what happens!");
+				scr_text(spr_narrator, 0, "(Hah, you can't see me because you skipped over me with right-click!)");
+				scr_goto("tutorial_1");
+				break;
+				
+			case "tutorial_1":
 				scr_text(spr_narrator, 0, "(If you missed any dialogue, or want to go back to read through dialogue you've already seen, press L to bring up the log.");
 				scr_text(spr_narrator, 0, "(Finally, if you need to save or load progress, you can use the S and U keys respectively.)");
 				scr_text(spr_narrator, 0, "(That's it for this tutorial! Let's move on to the game now.)");
@@ -154,7 +160,8 @@ function scr_dict_chinese(_text_id){
 			
 		case "shrimp_fried_rice":
 			scr_text(spr_temmie, 1, "Anyways, I guess I should try and figure out where Laser is...");
-			scr_room_goto(rm_research);
+			scr_text(spr_temmie, 1, "Where could he be? Hm...");
+			scr_room_goto(rm_courtyard);
 			break;
 			
 	};

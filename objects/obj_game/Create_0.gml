@@ -22,6 +22,7 @@ state = {
 
 state.flags = {
 	shop_convo_start: false, // Set to true when the dialogue for the shop convo is triggered
+	courtyard_convo_start: false, // Set to true when the dialogue for courtyard convo is triggered
 	research_convo_start: false, // Set to true when the research conversation is started
 	hallway_convo_start: false, // Set to true when any convseration in the hallway is initiated
 	
